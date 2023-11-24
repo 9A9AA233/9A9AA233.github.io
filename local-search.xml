@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>az</title>
+    <link href="/2023/11/24/az/"/>
+    <url>/2023/11/24/az/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>只狼Steam存档替换方法</title>
+    <link href="/2023/11/23/%E5%8F%AA%E7%8B%BCSteam%E5%AD%98%E6%A1%A3%E6%9B%BF%E6%8D%A2%E6%96%B9%E6%B3%95/"/>
+    <url>/2023/11/23/%E5%8F%AA%E7%8B%BCSteam%E5%AD%98%E6%A1%A3%E6%9B%BF%E6%8D%A2%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p>Steam版的只狼由于存档中含有与账号相关的信息，无法直接复制文件来进行存档替换。如果需要使用他人存档或进行盗版存档转正，需要先对其进行修改。本文需要用到16进制编辑器，这里使用的是<a href="https://mh-nexus.de/downloads/HxDSetup.zip">HDX</a></p><h2 id="修改步骤"><a href="#修改步骤" class="headerlink" title="修改步骤"></a>修改步骤</h2><p>存档文件位置：<code>%appdata%\Sekiro\&#123;SteamID&#125;\S0000.sl2</code></p><p>具体步骤如下</p><ol><li>查找待修改文件中<code>00A003D4-00A003DB</code>的位置，将其替换为自己的Steam 64位ID</li><li>根据下面的存档数据地址寻找欲修改的存档位，将表中该存档SteamID的位置也替换为自己的Steam 64位ID。</li><li>根据下表选取修改的存档数据，对其进行md5校验后将结果覆盖至存档校验的位置</li><li>如需要融合两个存档中的多个角色，可根据下面的地址自由发挥，切记存档位置和总的SteamID都需替换为自己的。</li></ol><h1 id="存档数据地址"><a href="#存档数据地址" class="headerlink" title="存档数据地址"></a>存档数据地址</h1><p>存档文件共有5个存档位和一个含有SteamID的信息位，每个存档位又分为存档数据和存档校验两个部分，同时每个存档数据中都包含一份SteamID，结构如下。</p><p>其中存档1、存档2地址已经验证过，其余存档的地址是根据数据长度与存档1、2中SteamID与数据头的偏移量<code>33E54</code>计算得到的，不保证其准确性。</p><h3 id="存档1"><a href="#存档1" class="headerlink" title="存档1"></a>存档1</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dns">存档数据: <span class="hljs-number">00000310</span> - <span class="hljs-number">0010030</span>F<br>存档校验: <span class="hljs-number">00000300</span> - <span class="hljs-number">0000030</span>F<br>SteamID: <span class="hljs-number">00034164</span> - <span class="hljs-number">0003416</span>B<br></code></pre></td></tr></table></figure><h3 id="存档2"><a href="#存档2" class="headerlink" title="存档2"></a>存档2</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dns">存档数据: <span class="hljs-number">00100320</span> - <span class="hljs-number">0020031</span>F<br>存档校验: <span class="hljs-number">00100310</span> - <span class="hljs-number">0010031</span>F<br>SteamID: <span class="hljs-number">00134174</span> - <span class="hljs-number">0013417</span>B<br></code></pre></td></tr></table></figure><h3 id="存档3"><a href="#存档3" class="headerlink" title="存档3"></a>存档3</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dns">存档数据: <span class="hljs-number">00200330</span> - <span class="hljs-number">0030032</span>F<br>存档校验: <span class="hljs-number">00200320</span> - <span class="hljs-number">0020032</span>F<br>SteamID: <span class="hljs-number">00234184</span> - <span class="hljs-number">0023418</span>B<br></code></pre></td></tr></table></figure><h3 id="存档4"><a href="#存档4" class="headerlink" title="存档4"></a>存档4</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dns">存档数据: <span class="hljs-number">00300340</span> - <span class="hljs-number">0040033</span>F<br>存档校验: <span class="hljs-number">00300330</span> - <span class="hljs-number">0030033</span>F<br>SteamID: <span class="hljs-number">00334194</span> - <span class="hljs-number">0033419</span>B<br></code></pre></td></tr></table></figure><h3 id="存档5"><a href="#存档5" class="headerlink" title="存档5"></a>存档5</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dns">存档数据: <span class="hljs-number">00400350</span> - <span class="hljs-number">0050034</span>F<br>存档校验: <span class="hljs-number">00400340</span> - <span class="hljs-number">0040034</span>F<br>SteamID: <span class="hljs-number">004341A4</span> - <span class="hljs-number">004341A8</span><br></code></pre></td></tr></table></figure><h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dns">总SteamID: <span class="hljs-number">00A003D4</span> - <span class="hljs-number">00</span>A003DB<br></code></pre></td></tr></table></figure><h3 id="存档1的数据详情-来源于Reddit，未验证"><a href="#存档1的数据详情-来源于Reddit，未验证" class="headerlink" title="存档1的数据详情 (来源于Reddit，未验证)"></a>存档1的数据详情 (来源于Reddit，未验证)</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dns">角色: <span class="hljs-number">00016140</span> - <span class="hljs-number">000</span>A0F5F<br>位置: <span class="hljs-number">000A5A70</span> - <span class="hljs-number">000</span>A5B1F<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>steam</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
